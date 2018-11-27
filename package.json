@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/LastLongerProject/GoodToGo_Toolkit/issues"
   },
-  "homepage": "https://github.com/LastLongerProject/GoodToGo_Toolkit#readme"
+  "homepage": "https://github.com/LastLongerProject/GoodToGo_Toolkit#readme",
+  "dependencies": {
+    "buffer-crc32": "^0.2.13",
+    "debug": "^4.1.0"
+  }
 }
