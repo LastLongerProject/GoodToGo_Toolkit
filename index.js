@@ -117,14 +117,14 @@ module.exports = {
         var recordToRemove = [];
         if (typeof action === 'string') {
             undoAction = "Undo" + action;
-            for (var i = tradeList.length - 1; i >= 0; i--) {
+            for (let i = tradeList.length - 1; i >= 0; i--) {
                 if (tradeList[i].tradeType.action === undoAction) {
                     containerKey = tradeList[i].container.id + "-" + tradeList[i].container.cycleCtr;
                     recordToRemove.push(containerKey);
                     tradeList.splice(i, 1);
                 } else if (tradeList[i].tradeType.action === action) {
                     containerKey = tradeList[i].container.id + "-" + tradeList[i].container.cycleCtr;
-                    var removeIndex = recordToRemove.indexOf(containerKey);
+                    let removeIndex = recordToRemove.indexOf(containerKey);
                     if (removeIndex !== -1) {
                         recordToRemove.splice(removeIndex, 1);
                         tradeList.splice(i, 1);
@@ -133,14 +133,14 @@ module.exports = {
             }
         } else if (Array.isArray(action)) {
             undoAction = ["Undo" + action[0], "Undo" + action[1]];
-            for (var i = tradeList.length - 1; i >= 0; i--) {
+            for (let i = tradeList.length - 1; i >= 0; i--) {
                 if (tradeList[i].tradeType.action === undoAction[0] || tradeList[i].tradeType.action === undoAction[1]) {
                     containerKey = tradeList[i].container.id + "-" + tradeList[i].container.cycleCtr + "-" + tradeList[i].tradeType.action.slice(4);
                     recordToRemove.push(containerKey);
                     tradeList.splice(i, 1);
                 } else if (tradeList[i].tradeType.action === action[0] || tradeList[i].tradeType.action === action[1]) {
                     containerKey = tradeList[i].container.id + "-" + tradeList[i].container.cycleCtr + "-" + tradeList[i].tradeType.action;
-                    var removeIndex = recordToRemove.indexOf(containerKey);
+                    let removeIndex = recordToRemove.indexOf(containerKey);
                     if (removeIndex !== -1) {
                         recordToRemove.splice(removeIndex, 1);
                         tradeList.splice(i, 1);
