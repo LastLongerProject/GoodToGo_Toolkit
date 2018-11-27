@@ -1,6 +1,6 @@
 {
   "name": "@lastlongerproject/toolkit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Toolkit of GoodToGo Backend Service",
   "main": "index.js",
   "scripts": {
