@@ -1,0 +1,19 @@
+{
+  "name": "goodtogo_toolkit",
+  "version": "1.0.0",
+  "description": "Toolkit of GoodToGo Backend Service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LastLongerProject/GoodToGo_Toolkit.git"
+  },
+  "author": "BenjaminChenTW",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LastLongerProject/GoodToGo_Toolkit/issues"
+  },
+  "homepage": "https://github.com/LastLongerProject/GoodToGo_Toolkit#readme"
+}
