@@ -1,5 +1,5 @@
 {
-  "name": "goodtogo_toolkit",
+  "name": "@goodtogo/toolkit",
   "version": "1.0.0",
   "description": "Toolkit of GoodToGo Backend Service",
   "main": "index.js",
