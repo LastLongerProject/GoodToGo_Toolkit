@@ -2,6 +2,12 @@ var debug = require('debug')('goodtogo_toolKit:err');
 var crc32 = require('buffer-crc32');
 
 module.exports = {
+    uniqArr: function (a) {
+        var seen = {};
+        return a.filter(function (item) {
+            return seen.hasOwnProperty(item) ? false : (seen[item] = true);
+        });
+    },
     wetag: function (body) {
         if (body.length === 0) {
             return 'W/"0-0"';
