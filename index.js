@@ -41,12 +41,6 @@ module.exports = {
             timezoneFix--;
         return new Date(date.getFullYear(), date.getMonth(), date.getDate() + timezoneFix, 16, 0, 0, 0);
     },
-    getDateCheckpoint_new: function (date) {
-        if (!isDate(date)) date = new Date();
-        var reply = new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1, 0, 0, 0, 0);
-        timeZoneConvert(reply);
-        return reply;
-    },
     getWeekCheckpoint: function (date) {
         if (!date) date = new Date();
         var timezoneFix = 0;
@@ -174,19 +168,8 @@ function isDate(date) {
     return typeof date === "object" && date instanceof Date
 };
 
-var timeZoneConvert = function (date, tz) {
-    date.setHours(date.getHours() - 8);
-    return date;
-};
-
-console.log(module.exports.getDateCheckpoint(new Date()).toString(), module.exports.getDateCheckpoint_new(new Date()).toString())
-
 if (process.env.OS === 'Windows_NT') {
     debug("Windows Version toolkit");
-    timeZoneConvert = function (date, tz) {
-        date.setDate(date.getDate() + 1);
-        return date;
-    };
     module.exports.dateCheckpoint = function (checkpoint) {
         var dateNow = new Date();
         var date = new Date(dateNow.getFullYear(), dateNow.getMonth(), dateNow.getDate() + checkpoint, 0, 0, 0, 0);
@@ -212,5 +195,3 @@ if (process.env.OS === 'Windows_NT') {
         return hoursFormatted + ":" + minutesFormatted;
     };
 }
-
-console.log(module.exports.getDateCheckpoint(new Date()).toString(), module.exports.getDateCheckpoint_new(new Date()).toString())
