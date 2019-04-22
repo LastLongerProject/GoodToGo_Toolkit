@@ -175,7 +175,7 @@ function isDate(date) {
 };
 
 var timeZoneConvert = function (date, tz) {
-    date.setHours(date.getHours() + 8);
+    date.setHours(date.getHours() - 8);
     return date;
 };
 
