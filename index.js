@@ -67,8 +67,8 @@ module.exports = {
         return localDate.getMonth() + 1;
     },
     fullDateString: function (date) {
-        dayFormatted = module.exports.intReLength(module.exports.dayFormatter(date), 2);
-        monthFormatted = module.exports.intReLength(module.exports.monthFormatter(date), 2);
+        var dayFormatted = module.exports.intReLength(module.exports.dayFormatter(date), 2);
+        var monthFormatted = module.exports.intReLength(module.exports.monthFormatter(date), 2);
         return date.getFullYear() + "/" + monthFormatted + "/" + dayFormatted;
     },
     validateStateChanging: function (bypass, oriState, newState, callback) {
@@ -164,6 +164,13 @@ module.exports = {
     }
 };
 
+function timezoneConvert(date, tz) {
+    date.setHours(date.getHours() + tz);
+    return date;
+}
+
+console.log(module.exports.getDateCheckpoint(new Date()).toString(), module.exports.getDateCheckpoint(timezoneConvert(new Date(), 8)).toString())
+
 if (process.env.OS === 'Windows_NT') {
     debug("Windows Version toolkit");
     module.exports.dateCheckpoint = function (checkpoint) {
@@ -186,19 +193,10 @@ if (process.env.OS === 'Windows_NT') {
         return dateToFormat.getMonth() + 1;
     };
     module.exports.timeFormatter = function (dateToFormat) {
-        var hoursFormatted = intReLength(dateToFormat.getHours(), 2);
-        var minutesFormatted = intReLength(dateToFormat.getMinutes(), 2);
+        var hoursFormatted = module.exports.intReLength(dateToFormat.getHours(), 2);
+        var minutesFormatted = module.exports.intReLength(dateToFormat.getMinutes(), 2);
         return hoursFormatted + ":" + minutesFormatted;
     };
 }
 
-function intReLength(data, length) {
-    var str = data.toString();
-    const zeroToAppend = length - str.length;
-    if (zeroToAppend) {
-        for (let j = 0; j < zeroToAppend; j++) {
-            str = "0" + str;
-        }
-    }
-    return str;
-}
+console.log(module.exports.getDateCheckpoint(new Date()).toString(), module.exports.getDateCheckpoint(timezoneConvert(new Date(), 8)).toString())
