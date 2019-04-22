@@ -43,8 +43,9 @@ module.exports = {
     },
     getDateCheckpoint_new: function (date) {
         if (!isDate(date)) date = new Date();
-        timeZoneConvert(date);
-        return new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1, 0, 0, 0, 0);;
+        var reply = new Date(date.getFullYear(), date.getMonth(), date.getDate() - 1, 0, 0, 0, 0);
+        timeZoneConvert(reply);
+        return reply;
     },
     getWeekCheckpoint: function (date) {
         if (!date) date = new Date();
