@@ -35,14 +35,14 @@ module.exports = {
         return date;
     },
     getDateCheckpoint: function (date) {
-        if (!date) date = new Date();
+        if (!isDate(date)) date = new Date();
         var timezoneFix = 0;
         if (date.getHours() < 16)
             timezoneFix--;
         return new Date(date.getFullYear(), date.getMonth(), date.getDate() + timezoneFix, 16, 0, 0, 0);
     },
     getWeekCheckpoint: function (date) {
-        if (!date) date = new Date();
+        if (!isDate(date)) date = new Date();
         var timezoneFix = 0;
         if (date.getHours() < 16)
             timezoneFix--;
