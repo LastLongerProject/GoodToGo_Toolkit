@@ -75,7 +75,7 @@ module.exports = {
         if (bypass) {
             switch (newState) {
                 case 5: // CancelDelivery
-                    if (oriState !== 0)
+                    if (oriState > 1)
                         return callback(false);
                     break;
                 case 4: // Unbox
